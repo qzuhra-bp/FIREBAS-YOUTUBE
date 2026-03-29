@@ -4,8 +4,8 @@ import {
   signOut,
   updateProfile
 } from "firebase/auth";
-import { doc, setDoc } from "firebaseConfig/firestore";
-import { auth, db } from "./firebaseConfig";
+import { doc, setDoc } from "firebase/firestore";
+import { auth, db } from "./firebaseConfig/auth";
 
 // Регистрация
 export const registerUser = async (name, email, password) => {

@@ -1,6 +1,6 @@
-import { BrowserRouter, Routes, Route, Navigate } from "react-router-dom";
+import { Routes, Route, Navigate } from "react-router-dom";
 import { useState, useEffect } from "react";
-import { getCurrentUser } from "../api"; // Используем наш переключатель API
+import { getCurrentUser } from "../api";
 import Login from "../pages/Login";
 import Register from "../pages/Register";
 import Dashboard from "../pages/Dashboard";
@@ -12,14 +12,9 @@ const AppRouter = () => {
   const [loading, setLoading] = useState(true);
 
   useEffect(() => {
-    // Проверяем есть ли пользователь в localStorage (для mock)
-    const checkUser = () => {
-      const currentUser = getCurrentUser();
-      setUser(currentUser);
-      setLoading(false);
-    };
-    
-    checkUser();
+    const currentUser = getCurrentUser();
+    setUser(currentUser);
+    setLoading(false);
   }, []);
 
   if (loading) {
@@ -38,29 +33,27 @@ const AppRouter = () => {
   }
 
   return (
-    <BrowserRouter>
-      <Routes>
-        <Route path="/login" element={<Login />} />
-        <Route path="/register" element={<Register />} />
-        <Route 
-          path="/dashboard" 
-          element={
-            <ProtectedRoute user={user}>
-              <Dashboard />
-            </ProtectedRoute>
-          } 
-        />
-        <Route 
-          path="/course/:id" 
-          element={
-            <ProtectedRoute user={user}>
-              <CoursePage />
-            </ProtectedRoute>
-          } 
-        />
-        <Route path="/" element={<Navigate to="/dashboard" />} />
-      </Routes>
-    </BrowserRouter>
+    <Routes>
+      <Route path="/login" element={<Login setUser={setUser} />} />
+      <Route path="/register" element={<Register setUser={setUser} />} />
+      <Route 
+        path="/dashboard" 
+        element={
+          <ProtectedRoute user={user}>
+            <Dashboard />
+          </ProtectedRoute>
+        } 
+      />
+      <Route 
+        path="/course/:id" 
+        element={
+          <ProtectedRoute user={user}>
+            <CoursePage />
+          </ProtectedRoute>
+        } 
+      />
+      <Route path="/" element={<Navigate to="/dashboard" />} />
+    </Routes>
   );
 };
 

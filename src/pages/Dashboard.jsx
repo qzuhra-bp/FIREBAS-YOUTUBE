@@ -1,5 +1,6 @@
 import { useState, useEffect } from "react";
-import { getCurrentUser, logoutUser, getUserCourses } from "../api/mockAuthService";
+import { getCurrentUser, logoutUser } from "../api/mockAuthService";
+import { getCourses } from "../api/courseService";
 import { useNavigate } from "react-router-dom";
 
 const Dashboard = () => {
@@ -14,16 +15,12 @@ const Dashboard = () => {
       return;
     }
     setUser(currentUser);
-    
-    // Загружаем курсы пользователя
-    loadUserCourses(currentUser.id);
+    loadCourses();
   }, [navigate]);
 
-  const loadUserCourses = async (userId) => {
-    const result = await getUserCourses(userId);
-    if (result.success) {
-      setCourses(result.courses);
-    }
+  const loadCourses = async () => {
+    const data = await getCourses();
+    setCourses(data);
   };
 
   const handleLogout = async () => {
@@ -45,16 +42,16 @@ const Dashboard = () => {
       
       <div className="courses-list">
         <h2>Ваши курсы</h2>
+        {courses.length === 0 && <p>Курсы не найдены</p>}
         {courses.map(course => (
-          <div key={course.id} className="course-card">
+          <div 
+            key={course.id} 
+            className="course-card"
+            onClick={() => navigate(`/course/${course.id}`)}
+            style={{ cursor: "pointer" }}
+          >
             <h3>{course.title}</h3>
-            <div className="progress-bar">
-              <div 
-                className="progress-fill" 
-                style={{ width: `${course.progress}%` }}
-              />
-            </div>
-            <span>{course.progress}%</span>
+            <p>{course.description}</p>
           </div>
         ))}
       </div>
