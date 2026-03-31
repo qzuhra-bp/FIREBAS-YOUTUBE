@@ -1,0 +1,74 @@
+.lessonContainer {
+  display: grid;
+  grid-template-columns: 2.2fr 1fr;
+  gap: 24px;
+  align-items: start;
+}
+
+.videoWrapper {
+  background: #ffffff;
+  border-radius: 24px;
+  padding: 24px;
+  box-shadow: 0 24px 70px rgba(15, 23, 42, 0.08);
+}
+
+.videoWrapper h2 {
+  margin: 0 0 18px;
+  font-size: 1.75rem;
+  color: #111827;
+}
+
+.videoIframe {
+  width: 100%;
+  aspect-ratio: 16 / 9;
+  border-radius: 18px;
+  border: none;
+}
+
+.lessonSide {
+  background: #f8fafc;
+  border-radius: 24px;
+  padding: 22px;
+  box-shadow: inset 0 0 0 1px rgba(148, 163, 184, 0.18);
+}
+
+.lessonSide h3 {
+  margin: 0 0 16px;
+  font-size: 1.15rem;
+  color: #0f172a;
+}
+
+.lessonList {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  display: grid;
+  gap: 10px;
+}
+
+.lessonItem {
+  padding: 14px 16px;
+  border-radius: 16px;
+  cursor: pointer;
+  background: #ffffff;
+  border: 1px solid transparent;
+  color: #1f2937;
+  transition: all 0.2s ease;
+}
+
+.lessonItem:hover {
+  background: #eef2ff;
+}
+
+.activeLesson {
+  background: linear-gradient(135deg, #6366f1 0%, #818cf8 100%);
+  color: #ffffff;
+  font-weight: 700;
+  border-color: transparent;
+}
+
+@media (max-width: 880px) {
+  .lessonContainer {
+    grid-template-columns: 1fr;
+  }
+}
