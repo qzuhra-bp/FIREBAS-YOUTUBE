@@ -6,6 +6,7 @@ import Register from "../pages/Register";
 import Dashboard from "../pages/Dashboard";
 import CoursePage from "../pages/CoursePage";
 import ProtectedRoute from "../components/ProtectedRoute";
+import Profile from "../components/Profile";
 
 const AppRouter = () => {
   const [user, setUser] = useState(null);
@@ -41,6 +42,15 @@ const AppRouter = () => {
         element={
           <ProtectedRoute user={user}>
             <Dashboard />
+
+          </ProtectedRoute>
+        } 
+      />
+        <Route 
+        path="/profile" 
+        element={
+          <ProtectedRoute user={user}>
+            <Profile/>
           </ProtectedRoute>
         } 
       />

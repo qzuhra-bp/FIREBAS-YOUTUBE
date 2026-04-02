@@ -1,5 +1,6 @@
 import React, { useEffect, useState } from "react";
 import { getLessonsByCourse } from "../api/courseService";
+import styles from "./LessonList.module.css";
 
 const getYouTubeId = (url) => {
   const match = url.match(/(?:v=|youtu\.be\/)([^&]+)/);
@@ -20,19 +21,16 @@ export default function LessonList({ courseId }) {
   }, [courseId]);
 
   return (
-    <div style={{ display: "flex", gap: "20px" }}>
+    <div className={styles.lessonContainer}>
       
-      {/* Видео плеер */}
-      <div style={{ flex: 2 }}>
+      <div className={styles.videoWrapper}>
         {activeLesson && (
           <>
             <h2>{activeLesson.title}</h2>
             <iframe
-              width="100%"
-              height="400"
+              className={styles.videoIframe}
               src={`https://www.youtube.com/embed/${getYouTubeId(activeLesson.videoUrl)}`}
               title={activeLesson.title}
-              frameBorder="0"
               allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
               allowFullScreen
             />
@@ -40,23 +38,14 @@ export default function LessonList({ courseId }) {
         )}
       </div>
 
-      {/* Сабактардын тизмеси */}
-      <div style={{ flex: 1 }}>
+      <div className={styles.lessonSide}>
         <h3>Уроки курса</h3>
-        <ul style={{ listStyle: "none", padding: 0 }}>
+        <ul className={styles.lessonList}>
           {lessons.map((lesson, index) => (
             <li
               key={lesson.id}
               onClick={() => setActiveLesson(lesson)}
-              style={{
-                padding: "10px",
-                marginBottom: "8px",
-                cursor: "pointer",
-                borderRadius: "8px",
-                background: activeLesson?.id === lesson.id ? "#667eea" : "#f0f0f0",
-                color: activeLesson?.id === lesson.id ? "white" : "black",
-                fontWeight: activeLesson?.id === lesson.id ? "bold" : "normal"
-              }}
+              className={`${styles.lessonItem} ${activeLesson?.id === lesson.id ? styles.activeLesson : ""}`}
             >
               {index + 1}. {lesson.title}
             </li>

@@ -1,15 +1,16 @@
 import { useParams, useNavigate } from "react-router-dom";
 import LessonList from "../components/LessonList";
+import styles from "./CoursePage.module.css";
 
 const CoursePage = () => {
   const { id } = useParams();
   const navigate = useNavigate();
 
   return (
-    <div style={{ padding: "20px" }}>
+    <div className={styles.pageWrapper}>
       <button 
         onClick={() => navigate("/dashboard")}
-        style={{ marginBottom: "20px", cursor: "pointer" }}
+        className={styles.backButton}
       >
         ← Назад
       </button>
