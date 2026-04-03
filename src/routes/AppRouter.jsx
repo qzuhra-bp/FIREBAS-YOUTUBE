@@ -4,6 +4,8 @@ import { getCurrentUser } from "../api";
 import Login from "../pages/Login";
 import Register from "../pages/Register";
 import Dashboard from "../pages/Dashboard";
+import MyCourses from "../pages/MyCourses";
+import MyNotes from "../pages/MyNotes";
 import CoursePage from "../pages/CoursePage";
 import ProtectedRoute from "../components/ProtectedRoute";
 import Profile from "../components/Profile";
@@ -43,6 +45,22 @@ const AppRouter = () => {
           <ProtectedRoute user={user}>
             <Dashboard />
 
+          </ProtectedRoute>
+        } 
+      />
+      <Route 
+        path="/my-courses" 
+        element={
+          <ProtectedRoute user={user}>
+            <MyCourses />
+          </ProtectedRoute>
+        } 
+      />
+      <Route 
+        path="/my-notes" 
+        element={
+          <ProtectedRoute user={user}>
+            <MyNotes />
           </ProtectedRoute>
         } 
       />

@@ -46,21 +46,89 @@ const mockLessons = {
       title: "Компоненты",
       videoUrl: "https://www.youtube.com/watch?v=Ke90Tje7VS0",
       courseId: "1"
+    },
+    {
+      id: "6",
+      title: "Props и State",
+      videoUrl: "https://www.youtube.com/watch?v=IYvD9oBCuJI",
+      courseId: "1"
+    },
+    {
+      id: "7",
+      title: "useState",
+      videoUrl: "https://www.youtube.com/watch?v=O6P86uwfdR0",
+      courseId: "1"
+    },
+    {
+      id: "8",
+      title: "useEffect",
+      videoUrl: "https://www.youtube.com/watch?v=0ZJgIjIuY7U",
+      courseId: "1"
     }
   ],
+
   "2": [
     {
       id: "4",
       title: "Что такое маркетинг",
       videoUrl: "https://www.youtube.com/watch?v=8KaJRw-rfn8",
       courseId: "2"
+    },
+    {
+      id: "9",
+      title: "Основы digital marketing",
+      videoUrl: "https://www.youtube.com/watch?v=nU-IIXBWlS4",
+      courseId: "2"
+    },
+    {
+      id: "10",
+      title: "SMM и продвижение",
+      videoUrl: "https://www.youtube.com/watch?v=QYpB8Yz6H8Q",
+      courseId: "2"
+    },
+    {
+      id: "11",
+      title: "Контент маркетинг",
+      videoUrl: "https://www.youtube.com/watch?v=7iYqQxJ1K9Q",
+      courseId: "2"
+    },
+    {
+      id: "12",
+      title: "Таргетированная реклама",
+      videoUrl: "https://www.youtube.com/watch?v=Vw8lG9AfN0A",
+      courseId: "2"
     }
   ],
+
   "3": [
     {
       id: "5",
       title: "Алфавит",
       videoUrl: "https://www.youtube.com/watch?v=75p-N9YKqNo",
+      courseId: "3"
+    },
+    {
+      id: "13",
+      title: "Приветствие на английском",
+      videoUrl: "https://www.youtube.com/watch?v=tVlcKp3bWH8",
+      courseId: "3"
+    },
+    {
+      id: "14",
+      title: "Числа и даты",
+      videoUrl: "https://www.youtube.com/watch?v=Dz6aL9cA9lc",
+      courseId: "3"
+    },
+    {
+      id: "15",
+      title: "Базовые слова",
+      videoUrl: "https://www.youtube.com/watch?v=0Hk3o6gGx5Q",
+      courseId: "3"
+    },
+    {
+      id: "16",
+      title: "Простые предложения",
+      videoUrl: "https://www.youtube.com/watch?v=JuKd26qkNAw",
       courseId: "3"
     }
   ]
