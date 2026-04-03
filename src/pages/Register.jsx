@@ -1,6 +1,7 @@
 import { useState } from "react";
 import { useNavigate, Link } from "react-router-dom";
-import { registerUser } from "../api/mockAuthService";
+// import { registerUser } from "../api/mockAuthService"; тут firebase нету
+import { registerUser } from "../api/authService";
 import styles from "./Register.module.css";
 
 const Register = ({ setUser }) => {

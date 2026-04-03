@@ -5,7 +5,7 @@ import {
   updateProfile
 } from "firebase/auth";
 import { doc, setDoc } from "firebase/firestore";
-import { auth, db } from "./firebaseConfig/auth";
+import { auth, db } from "./firebaseConfig";
 
 // Регистрация
 export const registerUser = async (name, email, password) => {
