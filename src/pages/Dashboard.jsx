@@ -136,13 +136,13 @@ const Dashboard = () => {
             <span>Главная</span>
           </button>
 
-          <button className={styles.navItem}>
+          <button className={styles.navItem} onClick={() => navigate("/my-courses")}>
             <span>🎓</span>
             <span>Мои курсы</span>
           </button>
-          <button className={styles.navItem}>
-            <span>💬</span>
-            <span>Сообщения</span>
+          <button className={styles.navItem} onClick={() => navigate("/my-notes")}>
+            <span>📝</span>
+            <span>Мои заметки</span>
           </button>
         </nav>
 
